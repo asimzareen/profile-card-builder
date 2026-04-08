@@ -1,6 +1,14 @@
+:root {
+    --primary-bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --error-color: #e74c3c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-bg);
     padding: 20px;
 }
 
@@ -8,45 +16,49 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .panel {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-.title { color: #888; }
-#cardName { color: #2c3e50; }
+.name-text { color: #999; }
+#displayName { color: #2c3e50; }
 
-.card > h2 { margin-top: 15px; }
-
-.card .skills-tags span {
-    background: #eee;
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-right: 5px;
-    font-size: 0.8rem;
+.card > h2 { margin: 15px 0 5px 0; }
+.card .tags span {
+    display: inline-block;
+    background: #e1e8ed;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 5px 5px 0 0;
 }
 
-form fieldset { border: none; }
+.avatar { width: 100px; height: 100px; border-radius: 50%; background: #ddd; }
+label { display: block; margin: 10px 0 5px; font-weight: bold; }
+input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
 
-label, input, textarea { 
-    display: block; 
+button { 
+    margin-top: 20px; 
+    padding: 12px 20px; 
+    background: #4a90e2; 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
     width: 100%; 
-    margin-bottom: 10px; 
 }
 
-.error-hidden { color: red; display: none; }
-.avatar { width: 80px; height: 80px; border-radius: 50%; background: #ddd; }
+.error-msg { color: var(--error-color); margin-top: 10px; font-weight: bold; }
 
 @media (min-width: 768px) {
-    .container {
-        flex-direction: row;
-    }
+    .container { flex-direction: row; align-items: flex-start; }
     .form-panel { flex: 1; }
-    .preview-panel { flex: 1.2; }
+    .preview-panel { flex: 1; position: sticky; top: 20px; }
 }

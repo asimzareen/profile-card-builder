@@ -7,49 +7,53 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+
     <main class="container">
         <section class="panel form-panel">
+            <h1>Profile Builder</h1>
             <form id="profileForm">
                 <fieldset>
-                    <legend>User Information</legend>
+                    <legend>Personal Details</legend>
                     
                     <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required>
+                    <input type="text" id="fullName" placeholder="Enter name" required>
 
                     <label for="jobTitle">Job Title *</label>
-                    <input type="text" id="jobTitle" name="jobTitle" required>
+                    <input type="text" id="jobTitle" placeholder="e.g. Frontend Developer" required>
 
-                    <label for="bio">Bio</label>
-                    <textarea id="bio" name="bio" rows="3"></textarea>
+                    <label for="bio">Short Bio</label>
+                    <textarea id="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
 
-                    <label for="avatarColor">Avatar Color</label>
-                    <input type="color" id="avatarColor" value="#3498db">
+                    <label for="avatarColor">Avatar Theme Color</label>
+                    <input type="color" id="avatarColor" value="#4a90e2">
 
-                    <div class="skills-group">
-                        <p>Skills (Select at least one):</p>
-                        <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
-                        <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
-                        <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
-                        <label><input type="checkbox" name="skills" value="React"> React</label>
+                    <div class="skills-container">
+                        <p>Skills (Select your stack):</p>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                            <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                            <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                            <label><input type="checkbox" name="skills" value="React"> React</label>
+                        </div>
                     </div>
 
                     <button type="submit" id="generateBtn">Generate Card</button>
-                    <p id="error-message" class="error-hidden">Please fill in required fields.</p>
+                    <div id="errorArea" class="error-msg"></div>
                 </fieldset>
             </form>
         </section>
 
         <section class="panel preview-panel">
             <div class="card" id="profileCard">
-                <div class="avatar" id="cardAvatar"></div>
-                <h2 class="title" id="cardName">Your Name</h2>
-                <p class="job-text" id="cardJob">Job Title</p>
-                <p class="bio-text" id="cardBio">Your bio will appear here...</p>
-                <div class="skills-tags" id="cardSkills">
-                    </div>
+                <div id="cardAvatar" class="avatar"></div>
+                <h2 class="name-text" id="displayName">Your Name</h2>
+                <p id="displayJob" class="job-title">Job Title</p>
+                <p id="displayBio">Your bio will appear here after you generate the card.</p>
+                <div id="skillsTags" class="tags"></div>
             </div>
         </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
